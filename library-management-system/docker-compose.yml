@@ -10,7 +10,7 @@ services:
       PostgreSQL:
         condition: service_healthy
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost/postgres
       - SPRING_DATASOURCE_DB=postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
@@ -20,7 +20,7 @@ services:
   PostgreSQL:
     image: 'postgres:latest'
     ports:
-      - '5432:5432'
+      - '5435:5432'
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres

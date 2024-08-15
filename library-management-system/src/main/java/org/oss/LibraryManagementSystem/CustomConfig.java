@@ -2,9 +2,12 @@ package org.oss.LibraryManagementSystem;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class CustomConfig implements WebMvcConfigurer {
@@ -23,4 +26,13 @@ public class CustomConfig implements WebMvcConfigurer {
         return configurer;
     }
 
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("postgres");
+        dataSource.setUrl("jdbc:postgresql://localhost/postgres");
+        return dataSource;
+    }
 }
