@@ -6,7 +6,7 @@
 * [Features](#features)
 * [Technologies](#technologies)
 * [Database Model](#database-model)
-* [Getting Started](#getting-started)
+*** [Getting Started](#getting-started)**
 * [Credits](#credits)
 
 ## General Info

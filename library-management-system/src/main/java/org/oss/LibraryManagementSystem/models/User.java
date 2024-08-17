@@ -1,12 +1,12 @@
 package org.oss.LibraryManagementSystem.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +32,7 @@ public class User {
     @NotNull(message = "last_name shouldn't be null")
     private String lastName;
 
-    @Column(name = "password")
+    @Column(name = "passwd")
     @NotNull(message = "password shouldn't be null")
     private String password;
 

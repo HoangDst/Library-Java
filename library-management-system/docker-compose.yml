@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   API:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: 'library-management-system.jar:latest'
     ports:
       - '8080:8080'
@@ -10,12 +12,13 @@ services:
       PostgreSQL:
         condition: service_healthy
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/postgres
+
       - SPRING_DATASOURCE_DB=postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
-#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-#    container_name: api
+  #      - SPRING_JPA_HIBERNATE_DDL_AUTO=updatedocker-compose build
+  #    container_name: api
 
   PostgreSQL:
     image: 'postgres:latest'
@@ -25,7 +28,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-#      - PGDATA=/tmp
+    #      - PGDATA=/tmp
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
     healthcheck:
@@ -33,7 +36,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-#    container_name: db
+  #    container_name: db
 
   mailhog:
     image: mailhog/mailhog

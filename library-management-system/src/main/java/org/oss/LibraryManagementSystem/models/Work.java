@@ -1,9 +1,9 @@
 package org.oss.LibraryManagementSystem.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
