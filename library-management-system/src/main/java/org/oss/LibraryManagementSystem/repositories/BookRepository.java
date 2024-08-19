@@ -15,6 +15,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     Page<Book> findByIsbnContainingOrPublisherNameContainingAllIgnoreCase(String isbn, String publisherName, Pageable pageable);
 
+
     Page<Book> findByWorkIdAndPublisherNameContainingIgnoreCase(Integer workId, String publisherName, Pageable pageable);
 
     @Query(value = "SELECT * FROM book b WHERE CAST(b.book_status AS text) = :bookStatus", nativeQuery = true)

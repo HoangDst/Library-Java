@@ -16,14 +16,14 @@ public class test {
     }
 
     public static void main(String[] args) {
-        String password = "myPassword123";
+        String password = "123456";
 
         // Hash mật khẩu
         String hashedPassword = hashPassword(password);
         System.out.println("Hashed Password: " + hashedPassword);
 
         // Kiểm tra mật khẩu
-        boolean matched = checkPassword("myPassword123", hashedPassword);
+        boolean matched = checkPassword(password, hashedPassword);
         System.out.println("Password Matched: " + matched);
     }
 }

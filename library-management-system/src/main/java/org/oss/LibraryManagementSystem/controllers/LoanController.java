@@ -116,7 +116,7 @@ public class LoanController {
 
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'LIBRARIAN')")
-    @GetMapping
+    @GetMapping()
     public String getAllLoans(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "3") int size, @RequestParam(defaultValue = "id,asc") String[] sort) {
         var pageLoans = loanService.getAllLoans(page, size, sort);
         var loans = pageLoans.getContent();

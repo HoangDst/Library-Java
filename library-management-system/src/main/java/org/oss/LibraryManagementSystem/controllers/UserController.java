@@ -35,7 +35,7 @@ public class UserController {
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'LIBRARIAN')")
-    @GetMapping
+    @GetMapping()
     public String getAllUsers(Authentication authentication, Model model, @RequestParam(required = false) String keyword, @RequestParam(required = false) String roleName, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "3") int size, @RequestParam(defaultValue = "id,asc") String[] sort) {
         var userPage = userService.getAllUsers(authentication, keyword, roleName, page, size, sort);
         var users = userPage.getContent();
@@ -102,15 +102,12 @@ public class UserController {
         return "redirect:/users";
     }
 
-
     @PreAuthorize("hasAnyAuthority('ADMIN', 'LIBRARIAN')")
     @GetMapping("/add")
     public String addNewUser(Model model, UserPayload userPayload) {
         var roles = roleRepository.findAll();
-
         model.addAttribute("userPayload", userPayload);
         model.addAttribute("roleOptions", roles);
-
         return "user/addNewUser";
     }
 

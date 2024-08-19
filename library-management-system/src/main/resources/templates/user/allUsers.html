@@ -153,8 +153,9 @@
                         </a>
                     </td>
                     <td>
-                        <div th:if="${user.roles.stream().findFirst().get().getName() == 'MEMBER'}">
-                            <a class="btn btn-primary" role="button"
+                        <div th:if="${user.roles != null && user.roles.size() > 0 &&
+                  #lists.contains(user.roles[0].name, 'MEMBER')}">
+                        <a class="btn btn-primary" role="button"
                                th:href="@{/loans/{memberId}/current(memberId=${user.id})}"
                                title="Current Loans"
                             >

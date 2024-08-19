@@ -72,8 +72,10 @@ public class BookController {
         model.addAttribute("totalPages", pageBooks.getTotalPages());
         model.addAttribute("pageSize", size);
 
-        if (keyword != null) model.addAttribute("keyword", keyword);
-        if (statusName != null) model.addAttribute("statusName", statusName);
+        if (keyword != null)
+            model.addAttribute("keyword", keyword);
+        if (statusName != null)
+            model.addAttribute("statusName", statusName);
 
         return "book/allBooks";
     }
